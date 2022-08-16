@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import com.example.fragmentlist.R
 import com.example.fragmentlist.databinding.FragmentFragmentarraylistBinding
+import com.example.fragmentlist.databinding.NewitemBinding
+import com.example.fragmentlist.databinding.UpdateitemBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -43,7 +45,7 @@ class ArrayListFragment : Fragment() {
         arrayList.add("trikha")
         binding.listView.adapter=adapter
         binding.fabButton.setOnClickListener{
-            var dialogBinding = binding.inflate(layoutInflater)
+            var dialogBinding = NewitemBinding.inflate(layoutInflater)
             var dialog= Dialog(requireContext())
             dialog.setContentView(dialogBinding.root)
             dialogBinding.btnAdd.setOnClickListener {
@@ -60,7 +62,7 @@ class ArrayListFragment : Fragment() {
             dialog.show()
         }
         binding.listView.setOnItemClickListener {adapterView,view,i,l ->
-            var dialogBinding =UpdateItemBinding.inflate(layoutInflater)
+            var dialogBinding =UpdateitemBinding.inflate(layoutInflater)
             var dialog= Dialog(requireContext())
             dialog.setContentView(dialogBinding.root)
             dialogBinding.etUpdateItem.setText(arrayList[i])
